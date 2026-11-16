@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# 抓包与样本 —— 绝不入库
+*.pcap
+*.har
+*.har.gz
+captures/
+samples/
+*.apk
+*.so
+*.dex
+probe_result.csv
+probe.json
+
+# 工具
+.pytest_cache/
+.ruff_cache/
+.idea/
+.vscode/
+
+# 本地数据
+*.db
+*.log
+.env

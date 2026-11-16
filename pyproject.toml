@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "app-recon-toolkit"
+version = "0.1.0"
+description = "Android 协议逆向工具链：APK 侦察、字符串定位、ELF 分析、抓包、黑盒校验探测"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "PH_SW" }]
+keywords = ["reverse-engineering", "android", "apk", "elf", "protocol"]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Security",
+]
+
+dependencies = [
+    "capstone>=5.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.7"]
+
+[project.scripts]
+recon-scan = "tools.recon.apk_scan:main"
+recon-hunt = "tools.recon.string_hunt:main"
+recon-elf = "tools.recon.elf_sym:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["tools"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
